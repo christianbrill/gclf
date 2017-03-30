@@ -161,7 +161,7 @@ if (isset($_GET['imdb'])) {
 		try {
 			// On récupère les infos sur un seul film
 			$movie = \Jleagle\Imdb\Imdb::retrieve($imdb);
-			
+
 			// On donne les bonnes valeurs aux variables destinées à l'affichage
 			// => pré-remplir le formulaire
 			$fil_titre = $movie->title;
@@ -191,7 +191,7 @@ if ($pdoStatement && $pdoStatement->rowCount() > 0) {
 	$supportsList = $pdoStatement->fetchAll();
 }
 
-require 'html/header.php';
+require 'inc/view/header.php';
 ?>
 	<form action="" method="get">
 		<legend>Pré-remplir avec IMDb</legend>
@@ -249,7 +249,7 @@ require 'html/header.php';
 					<?php for ($annee=date('Y');$annee>1930;$annee--) : ?>
 					<option value="<?php echo $annee; ?>"<?php echo $fil_annee==$annee ? ' selected="selected"' : ''; ?>><?php echo $annee; ?></option>
 					<?php endfor; ?>
-				</select></td>	
+				</select></td>
 			</tr>
 			<tr>
 				<td>Synopsis :&nbsp;</td>
@@ -274,10 +274,10 @@ require 'html/header.php';
 			<tr>
 				<td></td>
 				<td><input type="submit" value="<?php if ($currentId > 0) { echo 'Modifier'; } else { echo 'Ajouter'; } ?>"/></td>
-			</tr>	
+			</tr>
 			</table>
 		</fieldset>
-	</form>	
+	</form>
 <?php
 
-require 'html/footer.php';
+require 'inc/view/footer.php';
